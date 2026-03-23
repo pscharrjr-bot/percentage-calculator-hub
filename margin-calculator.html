@@ -1,1 +1,129 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Margin Calculator</title><meta name="description" content="Calculate margin percentage using revenue and cost." /><link rel="stylesheet" href="styles.css" /><script src="scripts.js" defer></script></head><body><header class="site-header"><div class="container"><div class="topbar"><a class="brand" href="index.html">Percentage Calculator Hub</a><nav class="nav"><a href="index.html">Home</a><a href="markup-calculator.html">Markup</a></nav></div><div class="hero"><h1>Margin Calculator</h1><p>Calculate gross profit margin based on revenue and cost.</p></div></div></header><main><div class="container"><section class="section calculator-layout"><div class="card"><h2>Enter values</h2><div class="input-grid"><div><label for="revenue">Revenue / Selling Price</label><input id="revenue" type="number" placeholder="100" /></div><div><label for="costMargin">Cost</label><input id="costMargin" type="number" placeholder="70" /></div></div><div class="actions"><button onclick="calcMargin()">Calculate</button><button class="secondary" onclick="clearFields(['revenue','costMargin']); setText('margin-result','—'); setText('margin-detail','Enter values to calculate.'); setText('margin-extra','');">Reset</button></div></div><div class="result-box"><div class="result-label">Margin</div><div id="margin-result" class="result-value">—</div><div id="margin-detail" class="small-note">Enter values to calculate.</div><div id="margin-extra" class="small-note"></div></div></section><section class="section"><div class="card"><h2>Formula</h2><p>Margin = <strong>((revenue - cost) ÷ revenue) × 100</strong></p></div></section></div></main><footer class="site-footer"><div class="container"><div class="footer-links"><a href="index.html">Home</a><a href="privacy.html">Privacy Policy</a></div></div></footer><script>function calcMargin(){const revenue=toNumber(document.getElementById('revenue').value);const cost=toNumber(document.getElementById('costMargin').value);if(!Number.isFinite(revenue)||!Number.isFinite(cost)||revenue===0){setText('margin-result','—');setText('margin-detail','Enter valid numbers and use revenue that is not zero.');setText('margin-extra','');return;}const profit=revenue-cost;const margin=(profit/revenue)*100;setText('margin-result',formatPercent(margin));setText('margin-detail',`Profit of $${formatNumber(profit)} on revenue of $${formatNumber(revenue)}.`);setText('margin-extra',`Cost entered: $${formatNumber(cost)}`);}</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Margin Calculator</title>
+  <meta name="description" content="Calculate gross profit margin from revenue and cost with this free margin calculator." />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="scripts.js" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <div class="topbar">
+      <a class="brand" href="index.html">Percentage Calculator Hub</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="markup-calculator.html">Markup</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="hero">
+      <h1>Margin Calculator</h1>
+      <p>Use this free margin calculator to measure how much profit you keep from each sale. Enter revenue and cost to calculate gross profit margin in seconds.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <section class="section calculator-layout">
+      <div class="card">
+        <h2>Enter your numbers</h2>
+        <div class="input-grid">
+          <div>
+            <label for="revenue">Revenue / Selling Price</label>
+            <input id="revenue" type="number" placeholder="100" />
+          </div>
+          <div>
+            <label for="costMargin">Cost</label>
+            <input id="costMargin" type="number" placeholder="70" />
+          </div>
+        </div>
+        <div class="actions">
+          <button onclick="calcMargin()">Calculate</button>
+          <button class="secondary" onclick="clearFields(['revenue','costMargin']); setText('margin-result','—'); setText('margin-detail','Enter values to calculate.'); setText('margin-extra','');">Reset</button>
+        </div>
+      </div>
+      <div class="result-box">
+        <div class="result-label">Margin</div>
+        <div id="margin-result" class="result-value">—</div>
+        <div id="margin-detail" class="small-note">Enter values to calculate.</div>
+        <div id="margin-extra" class="small-note"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <h2>How this calculator works</h2>
+        <p>Margin measures profit as a percentage of revenue. To find margin, subtract cost from revenue to get profit, then divide profit by revenue and multiply by 100.</p>
+        <p>Formula: <strong>((revenue − cost) ÷ revenue) × 100</strong></p>
+        <p>This is useful when you want to know what share of each sale remains after covering the direct cost.</p>
+      </div>
+    </section>
+
+    <section class="section grid">
+      <div class="card">
+        <h2>Example</h2>
+        <p>If your selling price is <strong>$100</strong> and your cost is <strong>$70</strong>:</p>
+        <p><strong>100 − 70 = 30</strong> profit</p>
+        <p><strong>(30 ÷ 100) × 100 = 30%</strong></p>
+        <p>So your gross profit margin is <strong>30%</strong>.</p>
+      </div>
+      <div class="card">
+        <h2>Common uses</h2>
+        <ul class="checklist">
+          <li>Checking profitability on products or services</li>
+          <li>Comparing business performance across items or categories</li>
+          <li>Reviewing ecommerce pricing and direct costs</li>
+          <li>Understanding how much of each sale is true gross profit</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <h2>Frequently asked questions</h2>
+        <div class="table-like">
+          <div class="table-row"><strong>What is profit margin?</strong><br />Profit margin is the percentage of revenue left over after subtracting cost.</div>
+          <div class="table-row"><strong>Why is margin different from markup?</strong><br />Margin uses revenue as the base, while markup uses cost as the base.</div>
+          <div class="table-row"><strong>What if cost is higher than revenue?</strong><br />The calculator will show a negative margin, which means you are selling at a loss.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function calcMargin(){
+  const revenue=toNumber(document.getElementById('revenue').value);
+  const cost=toNumber(document.getElementById('costMargin').value);
+  if(!Number.isFinite(revenue)||!Number.isFinite(cost)||revenue===0){
+    setText('margin-result','—');
+    setText('margin-detail','Enter valid numbers and use revenue that is not zero.');
+    setText('margin-extra','');
+    return;
+  }
+  const profit=revenue-cost;
+  const margin=(profit/revenue)*100;
+  setText('margin-result',formatPercent(margin));
+  setText('margin-detail',`Profit of $${formatNumber(profit)} on revenue of $${formatNumber(revenue)}.`);
+  setText('margin-extra',`Cost entered: $${formatNumber(cost)}`);
+}
+</script>
+</body>
+</html>

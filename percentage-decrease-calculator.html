@@ -1,1 +1,123 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Percentage Decrease Calculator</title><meta name="description" content="Calculate the percentage decrease from one value to another." /><link rel="stylesheet" href="styles.css" /><script src="scripts.js" defer></script></head><body><header class="site-header"><div class="container"><div class="topbar"><a class="brand" href="index.html">Percentage Calculator Hub</a><nav class="nav"><a href="index.html">Home</a><a href="percent-change-calculator.html">Percent Change</a></nav></div><div class="hero"><h1>Percentage Decrease Calculator</h1><p>See how much a number has decreased by percentage.</p></div></div></header><main><div class="container"><section class="section calculator-layout"><div class="card"><h2>Enter values</h2><div class="input-grid"><div><label for="startVal">Original Value</label><input id="startVal" type="number" placeholder="200" /></div><div><label for="endVal">New Value</label><input id="endVal" type="number" placeholder="150" /></div></div><div class="actions"><button onclick="calcDecrease()">Calculate</button><button class="secondary" onclick="clearFields(['startVal','endVal']); setText('decrease-result','—'); setText('decrease-detail','Enter values to calculate.');">Reset</button></div></div><div class="result-box"><div class="result-label">Percentage Decrease</div><div id="decrease-result" class="result-value">—</div><div id="decrease-detail" class="small-note">Enter values to calculate.</div></div></section><section class="section"><div class="card"><h2>Formula</h2><p>Percentage decrease = <strong>((original value - new value) ÷ original value) × 100</strong></p></div></section></div></main><footer class="site-footer"><div class="container"><div class="footer-links"><a href="index.html">Home</a><a href="privacy.html">Privacy Policy</a></div></div></footer><script>function calcDecrease(){const a=toNumber(document.getElementById('startVal').value);const b=toNumber(document.getElementById('endVal').value);if(!Number.isFinite(a)||!Number.isFinite(b)||a===0){setText('decrease-result','—');setText('decrease-detail','Enter valid numbers and use an original value that is not zero.');return;}const result=((a-b)/a)*100;setText('decrease-result',formatPercent(result));setText('decrease-detail',`Decrease from ${formatNumber(a)} to ${formatNumber(b)} = ${formatPercent(result)}`);}</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Percentage Decrease Calculator</title>
+  <meta name="description" content="Calculate the percentage decrease from one number to another with this free percentage decrease calculator." />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="scripts.js" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <div class="topbar">
+      <a class="brand" href="index.html">Percentage Calculator Hub</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="percent-change-calculator.html">Percent Change</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="hero">
+      <h1>Percentage Decrease Calculator</h1>
+      <p>Use this free percentage decrease calculator to find how much a value dropped from its starting amount. It is useful for markdowns, budget cuts, population declines, and price reductions.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <section class="section calculator-layout">
+      <div class="card">
+        <h2>Enter your values</h2>
+        <div class="input-grid">
+          <div>
+            <label for="startVal">Original Value</label>
+            <input id="startVal" type="number" placeholder="200" />
+          </div>
+          <div>
+            <label for="endVal">New Value</label>
+            <input id="endVal" type="number" placeholder="150" />
+          </div>
+        </div>
+        <div class="actions">
+          <button onclick="calcDecrease()">Calculate</button>
+          <button class="secondary" onclick="clearFields(['startVal','endVal']); setText('decrease-result','—'); setText('decrease-detail','Enter values to calculate.');">Reset</button>
+        </div>
+      </div>
+      <div class="result-box">
+        <div class="result-label">Percentage Decrease</div>
+        <div id="decrease-result" class="result-value">—</div>
+        <div id="decrease-detail" class="small-note">Enter values to calculate.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <h2>How this calculator works</h2>
+        <p>To calculate percentage decrease, subtract the new value from the original value, divide the difference by the original value, and multiply by 100. This tells you how much the value fell relative to the starting point.</p>
+        <p>Formula: <strong>((original value − new value) ÷ original value) × 100</strong></p>
+      </div>
+    </section>
+
+    <section class="section grid">
+      <div class="card">
+        <h2>Example</h2>
+        <p>If a price drops from <strong>200</strong> to <strong>150</strong>:</p>
+        <p><strong>((200 − 150) ÷ 200) × 100 = 25%</strong></p>
+        <p>So the percentage decrease is 25%.</p>
+      </div>
+      <div class="card">
+        <h2>Common uses</h2>
+        <ul class="checklist">
+          <li>Calculating sale markdowns and discounts</li>
+          <li>Measuring drops in traffic, sales, or revenue</li>
+          <li>Comparing reduced budgets or expenses</li>
+          <li>Tracking declines in weight, inventory, or output</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <h2>Frequently asked questions</h2>
+        <div class="table-like">
+          <div class="table-row"><strong>What is percentage decrease?</strong><br />It shows how much a value has fallen compared with its original amount, expressed as a percentage.</div>
+          <div class="table-row"><strong>Why do I divide by the original value?</strong><br />Because percentage decrease is always measured relative to the starting point, not the ending point.</div>
+          <div class="table-row"><strong>Can I use this for money and pricing?</strong><br />Yes. It is commonly used for sales prices, invoice reductions, cost savings, and other everyday decreases.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function calcDecrease(){
+  const a=toNumber(document.getElementById('startVal').value);
+  const b=toNumber(document.getElementById('endVal').value);
+  if(!Number.isFinite(a)||!Number.isFinite(b)||a===0){
+    setText('decrease-result','—');
+    setText('decrease-detail','Enter valid numbers and use an original value that is not zero.');
+    return;
+  }
+  const result=((a-b)/a)*100;
+  setText('decrease-result',formatPercent(result));
+  setText('decrease-detail',`Decrease from ${formatNumber(a)} to ${formatNumber(b)} = ${formatPercent(result)}`);
+}
+</script>
+</body>
+</html>

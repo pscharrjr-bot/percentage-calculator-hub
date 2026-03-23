@@ -1,1 +1,123 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Percentage Increase Calculator</title><meta name="description" content="Calculate the percentage increase from one number to another." /><link rel="stylesheet" href="styles.css" /><script src="scripts.js" defer></script></head><body><header class="site-header"><div class="container"><div class="topbar"><a class="brand" href="index.html">Percentage Calculator Hub</a><nav class="nav"><a href="index.html">Home</a><a href="percentage-decrease-calculator.html">Decrease</a></nav></div><div class="hero"><h1>Percentage Increase Calculator</h1><p>Find the percent increase between an original value and a new value.</p></div></div></header><main><div class="container"><section class="section calculator-layout"><div class="card"><h2>Enter values</h2><div class="input-grid"><div><label for="oldVal">Original Value</label><input id="oldVal" type="number" placeholder="100" /></div><div><label for="newVal">New Value</label><input id="newVal" type="number" placeholder="125" /></div></div><div class="actions"><button onclick="calcIncrease()">Calculate</button><button class="secondary" onclick="clearFields(['oldVal','newVal']); setText('increase-result','—'); setText('increase-detail','Enter values to calculate.');">Reset</button></div></div><div class="result-box"><div class="result-label">Percentage Increase</div><div id="increase-result" class="result-value">—</div><div id="increase-detail" class="small-note">Enter values to calculate.</div></div></section><section class="section"><div class="card"><h2>Formula</h2><p>Percentage increase = <strong>((new value - original value) ÷ original value) × 100</strong></p></div></section></div></main><footer class="site-footer"><div class="container"><div class="footer-links"><a href="index.html">Home</a><a href="privacy.html">Privacy Policy</a></div></div></footer><script>function calcIncrease(){const a=toNumber(document.getElementById('oldVal').value);const b=toNumber(document.getElementById('newVal').value);if(!Number.isFinite(a)||!Number.isFinite(b)||a===0){setText('increase-result','—');setText('increase-detail','Enter valid numbers and use an original value that is not zero.');return;}const result=((b-a)/a)*100;setText('increase-result',formatPercent(result));setText('increase-detail',`Change from ${formatNumber(a)} to ${formatNumber(b)} = ${formatPercent(result)}`);}</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Percentage Increase Calculator</title>
+  <meta name="description" content="Calculate the percentage increase from one number to another with this free percentage increase calculator." />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="scripts.js" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <div class="topbar">
+      <a class="brand" href="index.html">Percentage Calculator Hub</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="percentage-decrease-calculator.html">Decrease</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="hero">
+      <h1>Percentage Increase Calculator</h1>
+      <p>Use this free percentage increase calculator to measure how much a value grew from its original amount. It is ideal for price changes, salary raises, sales growth, and year-over-year comparisons.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <section class="section calculator-layout">
+      <div class="card">
+        <h2>Enter your values</h2>
+        <div class="input-grid">
+          <div>
+            <label for="oldVal">Original Value</label>
+            <input id="oldVal" type="number" placeholder="100" />
+          </div>
+          <div>
+            <label for="newVal">New Value</label>
+            <input id="newVal" type="number" placeholder="125" />
+          </div>
+        </div>
+        <div class="actions">
+          <button onclick="calcIncrease()">Calculate</button>
+          <button class="secondary" onclick="clearFields(['oldVal','newVal']); setText('increase-result','—'); setText('increase-detail','Enter values to calculate.');">Reset</button>
+        </div>
+      </div>
+      <div class="result-box">
+        <div class="result-label">Percentage Increase</div>
+        <div id="increase-result" class="result-value">—</div>
+        <div id="increase-detail" class="small-note">Enter values to calculate.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <h2>How this calculator works</h2>
+        <p>To calculate percentage increase, subtract the original value from the new value, divide the difference by the original value, and multiply by 100. This shows the growth relative to where you started.</p>
+        <p>Formula: <strong>((new value − original value) ÷ original value) × 100</strong></p>
+      </div>
+    </section>
+
+    <section class="section grid">
+      <div class="card">
+        <h2>Example</h2>
+        <p>If a product price rises from <strong>100</strong> to <strong>125</strong>:</p>
+        <p><strong>((125 − 100) ÷ 100) × 100 = 25%</strong></p>
+        <p>So the percentage increase is 25%.</p>
+      </div>
+      <div class="card">
+        <h2>Common uses</h2>
+        <ul class="checklist">
+          <li>Measuring pay raises or salary growth</li>
+          <li>Comparing revenue or sales over time</li>
+          <li>Tracking increases in expenses or bills</li>
+          <li>Checking how much an investment gained</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <h2>Frequently asked questions</h2>
+        <div class="table-like">
+          <div class="table-row"><strong>What is percentage increase?</strong><br />It shows how much a new value has grown compared with the original value, expressed as a percentage.</div>
+          <div class="table-row"><strong>Why can’t the original value be zero?</strong><br />Because percentage increase divides by the original value. Division by zero is not valid.</div>
+          <div class="table-row"><strong>Can the result be negative?</strong><br />If the new value is lower than the original value, the math produces a negative result, which means the value actually decreased instead of increased.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function calcIncrease(){
+  const a=toNumber(document.getElementById('oldVal').value);
+  const b=toNumber(document.getElementById('newVal').value);
+  if(!Number.isFinite(a)||!Number.isFinite(b)||a===0){
+    setText('increase-result','—');
+    setText('increase-detail','Enter valid numbers and use an original value that is not zero.');
+    return;
+  }
+  const result=((b-a)/a)*100;
+  setText('increase-result',formatPercent(result));
+  setText('increase-detail',`Change from ${formatNumber(a)} to ${formatNumber(b)} = ${formatPercent(result)}`);
+}
+</script>
+</body>
+</html>

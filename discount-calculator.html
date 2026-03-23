@@ -1,1 +1,127 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Discount Calculator</title><meta name="description" content="Calculate sale price, money saved, and discount percentages." /><link rel="stylesheet" href="styles.css" /><script src="scripts.js" defer></script></head><body><header class="site-header"><div class="container"><div class="topbar"><a class="brand" href="index.html">Percentage Calculator Hub</a><nav class="nav"><a href="index.html">Home</a><a href="markup-calculator.html">Markup</a></nav></div><div class="hero"><h1>Discount Calculator</h1><p>Calculate how much you save after a percentage discount and what the final price will be.</p></div></div></header><main><div class="container"><section class="section calculator-layout"><div class="card"><h2>Enter values</h2><div class="input-grid"><div><label for="originalPrice">Original Price</label><input id="originalPrice" type="number" placeholder="120" /></div><div><label for="discountPercent">Discount (%)</label><input id="discountPercent" type="number" placeholder="25" /></div></div><div class="actions"><button onclick="calcDiscount()">Calculate</button><button class="secondary" onclick="clearFields(['originalPrice','discountPercent']); setText('discount-result','—'); setText('discount-detail','Enter values to calculate.'); setText('discount-extra','');">Reset</button></div></div><div class="result-box"><div class="result-label">Final Price</div><div id="discount-result" class="result-value">—</div><div id="discount-detail" class="small-note">Enter values to calculate.</div><div id="discount-extra" class="small-note"></div></div></section><section class="section"><div class="card"><h2>What this calculator shows</h2><p>This tool calculates the amount saved and the final amount after the discount is applied.</p></div></section></div></main><footer class="site-footer"><div class="container"><div class="footer-links"><a href="index.html">Home</a><a href="privacy.html">Privacy Policy</a></div></div></footer><script>function calcDiscount(){const price=toNumber(document.getElementById('originalPrice').value);const discount=toNumber(document.getElementById('discountPercent').value);if(!Number.isFinite(price)||!Number.isFinite(discount)){setText('discount-result','—');setText('discount-detail','Please enter valid numbers.');setText('discount-extra','');return;}const saved=(discount/100)*price;const finalPrice=price-saved;setText('discount-result',`$${formatNumber(finalPrice)}`);setText('discount-detail',`You save $${formatNumber(saved)} on an original price of $${formatNumber(price)}.`);setText('discount-extra',`Discount applied: ${formatPercent(discount)}`);}</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discount Calculator</title>
+  <meta name="description" content="Calculate sale price, money saved, and discount percentages with this free discount calculator." />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="scripts.js" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <div class="topbar">
+      <a class="brand" href="index.html">Percentage Calculator Hub</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="percentage-increase-calculator.html">Increase</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="hero">
+      <h1>Discount Calculator</h1>
+      <p>Use this free discount calculator to find your sale price, total savings, and discount amount in seconds.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <section class="section calculator-layout">
+      <div class="card">
+        <h2>Enter your numbers</h2>
+        <div class="input-grid">
+          <div>
+            <label for="originalPrice">Original Price</label>
+            <input id="originalPrice" type="number" placeholder="120" />
+          </div>
+          <div>
+            <label for="discountPercent">Discount (%)</label>
+            <input id="discountPercent" type="number" placeholder="25" />
+          </div>
+        </div>
+        <div class="actions">
+          <button onclick="calcDiscount()">Calculate</button>
+          <button class="secondary" onclick="clearFields(['originalPrice','discountPercent']); setText('discount-result','—'); setText('discount-detail','Enter values to calculate.'); setText('discount-extra','');">Reset</button>
+        </div>
+      </div>
+      <div class="result-box">
+        <div class="result-label">Final Price</div>
+        <div id="discount-result" class="result-value">—</div>
+        <div id="discount-detail" class="small-note">Enter values to calculate.</div>
+        <div id="discount-extra" class="small-note"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <h2>How this calculator works</h2>
+        <p>To calculate a discount, multiply the original price by the discount percentage to find the savings, then subtract that amount from the original price.</p>
+        <p>Formula: <strong>final price = original price − ((discount ÷ 100) × original price)</strong></p>
+      </div>
+    </section>
+
+    <section class="section grid">
+      <div class="card">
+        <h2>Example</h2>
+        <p>If an item costs <strong>$120</strong> and the discount is <strong>25%</strong>:</p>
+        <p><strong>(25 ÷ 100) × 120 = 30</strong></p>
+        <p>You save $30, so the final price is <strong>$90</strong>.</p>
+      </div>
+      <div class="card">
+        <h2>Common uses</h2>
+        <ul class="checklist">
+          <li>Shopping sales and clearance deals</li>
+          <li>Comparing coupons and promotions</li>
+          <li>Planning seasonal retail pricing</li>
+          <li>Double-checking online checkout totals</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <h2>Frequently asked questions</h2>
+        <div class="table-like">
+          <div class="table-row"><strong>How do I calculate a discount price?</strong><br />Multiply the original price by the discount percentage to find the savings, then subtract the savings from the original price.</div>
+          <div class="table-row"><strong>What is 20% off of $50?</strong><br />20% of $50 is $10, so the discounted price is $40.</div>
+          <div class="table-row"><strong>Can I use this calculator for coupons and markdowns?</strong><br />Yes. It works for store discounts, coupon savings, promotional offers, and personal budgeting.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function calcDiscount(){
+  const price=toNumber(document.getElementById('originalPrice').value);
+  const discount=toNumber(document.getElementById('discountPercent').value);
+  if(!Number.isFinite(price)||!Number.isFinite(discount)){
+    setText('discount-result','—');
+    setText('discount-detail','Please enter valid numbers.');
+    setText('discount-extra','');
+    return;
+  }
+  const saved=(discount/100)*price;
+  const finalPrice=price-saved;
+  setText('discount-result',`$${formatNumber(finalPrice)}`);
+  setText('discount-detail',`You save $${formatNumber(saved)} on an original price of $${formatNumber(price)}.`);
+  setText('discount-extra',`Discount applied: ${formatPercent(discount)}`);
+}
+</script>
+</body>
+</html>
